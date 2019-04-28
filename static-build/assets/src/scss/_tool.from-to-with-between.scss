@@ -1,0 +1,20 @@
+
+	@mixin from-to-with-between($cssProperty, $fromValue, $toValue, $fromMq: 320px, $toMq: 1440px) {
+		
+		#{$cssProperty}: $fromValue;
+
+		@media ( min-width: $fromMq ) {
+			#{$cssProperty}: between($fromValue, $toValue, $fromMq, $toMq); 
+        }
+
+		@media ( min-width: $toMq ) {
+        	#{$cssProperty}: $toValue;
+        }
+	}
+
+	@function between($to, $from, $toWidth, $fromWidth) {
+		$slope: ($to - $from) / ($toWidth - $fromWidth);
+		$base: $from - $slope * $fromWidth;
+
+		@return calc(#{$base} + #{100vw * $slope});
+	}

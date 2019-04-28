@@ -1,0 +1,45 @@
+
+	.about {
+		background-color: #fff;
+		padding: 25vh 0;
+
+		&__container {
+			@extend .container;
+		}
+
+		&__content {
+			@extend .simple-text;
+			position: relative;
+			z-index: 1;
+
+			&:after {
+				@include from-to-with-between('font-size', 160px, 265px, 1024px, 1920px);
+				content: "Edd Smith";
+				position: absolute;
+				top: 0;
+				transform: translateX(-10%);
+				font-weight: 900;
+				text-transform: uppercase;
+				color: #000;
+				opacity: .1;
+				line-height: 1;
+				z-index: -1;
+			}
+
+			@media ( min-width: 1024px) {
+				margin-left: 50%;
+
+				&:after {
+					left: auto;
+					right: 50%;
+					white-space: nowrap;
+					transform: translateX(0);
+				}
+			}
+
+			* {
+				font-size: 40px;
+				font-weight: bold;
+			}
+		}
+	}

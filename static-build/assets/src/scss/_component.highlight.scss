@@ -1,0 +1,29 @@
+
+	.highlight {
+		position: relative;
+		z-index: 1;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 20%;
+			left: -5%;
+			width: 110%;
+			height: 60%;
+			background-color: #00c8ff;
+			z-index: -1;
+		}
+
+		&__billboard {
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+			z-index: 9999;
+			pointer-events: none;
+
+			&.hello {
+				display: block;
+			}
+		}
+	}

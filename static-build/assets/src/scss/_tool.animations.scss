@@ -1,0 +1,19 @@
+
+	.v-slide-top {
+		clip-path: inset( 0 0 100% 0 );
+		animation-name: v-slide-top;
+		animation-duration: .5s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+	}
+	
+	@keyframes v-slide-top {
+		0% {
+			clip-path: inset( 0 0 100% 0 );
+		}
+
+		100% {
+			clip-path: inset( 0 0 0 0 );
+		}
+	}

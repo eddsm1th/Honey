@@ -1,0 +1,72 @@
+
+	.cross {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		animation-name: cross-spin;
+		animation-duration: 5s;
+		animation-timing-function: ease;
+		animation-iteration-count: infinite;
+
+		&:after, &:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			background-color: #0088ff;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+
+		&:after {
+			transform: translateY(-50%) rotate(90deg);
+		}
+
+		&:nth-child(3n + 2) {
+			animation-delay: .5s;
+		}
+
+		&:nth-child(3n + 3) {
+			animation-delay: 1s;
+		}
+
+		&.style-one {
+			top: calc(100% + 20px);
+			left: 35%;
+		}
+
+		&.style-two {
+			bottom: calc(100% + 20px);
+			right: calc(100% + 20px);
+		}
+
+		&.style-three {
+			top: 35%;
+			left: calc(100% + 20px);
+		}
+
+		@keyframes cross-spin {
+			0% {
+				transform: rotate(0);
+			}
+
+			60% {
+				transform: rotate(0);	
+			}
+
+			70% {
+				transform: rotate(90deg);	
+			}
+
+			70.01% {
+				transform: rotate(0);	
+			}
+
+			100% {
+				transform: rotate(0);	
+			}
+		}
+	}
+
+	
