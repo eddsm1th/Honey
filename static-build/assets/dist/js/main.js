@@ -9,7 +9,7 @@ if ( highlights && highlightBillboard ) {
 
         highlight.addEventListener( 'mouseenter', function () {
 
-            highlightBillboard.src = highlightImagePath;
+            highlightBillboard.querySelector('img').src = highlightImagePath;
 
             highlightBillboard.classList.add('hello');
 
@@ -25,20 +25,16 @@ if ( highlights && highlightBillboard ) {
 
     window.addEventListener( 'mousemove', function ( event ) {
 
-        highlightBillboard.style.transform = `translate(${ event.clientX + 1 }px, ${ event.clientY + 1 }px)`;
+        highlightBillboard.style.transform = `translate(${ event.clientX + 1 }px, ${ event.clientY }px)`;
 
     } )
 
 }
 
-
-
-
-
 const   workArchives = document.querySelectorAll('.js-work-archive'),
         windowHeight = window.innerHeight;
 
-document.addEventListener('mousemove', function ( event ) {
+document.addEventListener('mousemove', function ( event ) {    
 
     const   mouseY = event.clientY,
             mouseYAsPercentOfWindow = mouseY / windowHeight;
@@ -51,8 +47,18 @@ document.addEventListener('mousemove', function ( event ) {
                 mouseYPercentRelativeToElem = elemHeight * mouseYAsPercentOfWindow,
                 getProperElemTranslation = workArchive.offsetHeight - mouseYPercentRelativeToElem - ( elemHeight / 2 );
 
-        workArchive.style.transform = `translateY(${ getProperElemTranslation }px)`;
+        if ( window.innerWidth > 1024 ) {
 
-    } )            
+            workArchive.style.transform = `translateY(${ getProperElemTranslation }px)`;
+
+        }
+
+        window.addEventListener( 'resize', function () {
+
+            workArchive.style.transform = `translateY(0px)`;
+
+        } )
+
+    } )
 
 } )

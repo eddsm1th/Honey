@@ -1,0 +1,67 @@
+
+const 	path = require('path'),
+		MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+		OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
+		TerserPlugin = require('terser-webpack-plugin'),
+		
+		outputPath = './static-build/assets/dist/css';
+		devMode = process.env.NODE_ENV !== 'production';
+
+module.exports = {
+
+	entry: { 
+		main: ['./static-build/assets/src/scss/main.scss']
+	},
+
+	output: {
+		path: path.resolve(__dirname, outputPath),
+		filename: 'main.css',
+		publicPath: '/'
+	},
+
+	optimization: {
+		minimizer: devMode ? [
+			new OptimizeCSSAssetsPlugin({})
+		] : []
+	},
+
+	devtool: "source-map",
+
+	module: {
+		rules: [
+
+			{
+		        test: /\.(sa|sc|c)ss$/,
+		        use: [
+			        {
+			        	loader: MiniCssExtractPlugin.loader
+			        },
+			        {
+			        	loader: 'css-loader', options: {
+		                    sourceMap: true,
+		                    url: false
+		                }
+			        },
+			        {
+			        	loader: 'postcss-loader', options: {
+		                    sourceMap: true
+		                }
+			        },
+		          	{
+			        	loader: 'sass-loader', options: {
+		                    sourceMap: true
+		                }
+			        }
+		        ],
+		      }
+		]
+	},
+
+	plugins: [
+
+	    new MiniCssExtractPlugin({
+	    	filename: devMode ? '../css/[name].css' : '../css/[name].[hash].css',
+	    	chunkFilename: devMode ? '../css/[id].css' : '../css/[id].[hash].css',
+	    })
+	],
+};

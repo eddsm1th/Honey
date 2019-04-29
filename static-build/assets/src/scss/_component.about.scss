@@ -1,7 +1,9 @@
 
 	.about {
+		@include from-to-with-between('padding-top', 80px, 240px, 320px, 1024px);
+		@include from-to-with-between('padding-bottom', 80px, 240px, 320px, 1024px);
 		background-color: #fff;
-		padding: 25vh 0;
+		overflow: hidden;
 
 		&__container {
 			@extend .container;
@@ -38,7 +40,7 @@
 			}
 
 			* {
-				font-size: 40px;
+				@include from-to-with-between('font-size', 28px, 40px, 320px, 1024px);
 				font-weight: bold;
 			}
 		}

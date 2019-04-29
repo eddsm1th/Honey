@@ -1,4 +1,4 @@
-<!doctype html>
+    <!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -11,13 +11,27 @@
     </head>
     <body>
 
-        <img class="highlight__billboard js-highlight-billboard">
+        <div class="highlight__billboard js-highlight-billboard">
+            <img>
+        </div>
 
         <nav class="overlay">
-            <a class="overlay__text overlay__text--top-left" href="#contact">Say hello</a>
-            <a class="overlay__text overlay__text--top-right" href="#about">About</a>
-            <a class="overlay__text overlay__text--bottom-left" href="#">EddSmith.com</a>
-            <a class="overlay__text overlay__text--bottom-right" href="#work">Work</a>
+
+            <ul class="overlay__wrapper">
+                <li class="overlay__text overlay__text--top-left">
+                    <a href="#contact">Say hello</a>
+                </li>
+                <li class="overlay__text overlay__text--top-right">
+                    <a href="#blog">Blog</a>
+                </li>
+                <li class="overlay__text overlay__text--bottom-left overlay__text--title">
+                    <a href="#">EddSmith.com</a>
+                </li>
+                <li class="overlay__text overlay__text--bottom-right">
+                    <a href="#work">Work</a>
+                </li>
+            </ul>
+
         </nav>
 
         <header class="about" id="about">
@@ -28,9 +42,9 @@
             
                     <h2><span class="highlight js-highlight" data-highlight-src="assets/dist/images/what-up.gif">What&nbsp;up!</span> I'm Edd. I am a front end developer based in&nbsp;Derbyshire.</h2>
 
-                    <h2>I'm currently working at BigBrandIdeas, but you can look at some projects I've been working on below.</h2>
+                    <h2>I'm currently working at BigBrandIdeas, but you can look at some projects I've been working on <a href="#work">below</a>.</h2>
 
-                    <h2>I also write every now and again about anything that comes into my mind. If you feel like reading some pretty mediocre writing about completely meaningless topics - check out my blog.</h2>
+                    <h2>I also write every now and again about anything that comes into my mind. If you feel like reading some pretty mediocre writing about completely meaningless topics - check out my <a href="#blog">blog</a>.</h2>
 
                 </article>
 
@@ -53,15 +67,15 @@
                             </a>
 
                             <a class="work__item">
-                                <h3>Example Work Item One</h3>
+                                <h3>Example Work Item Two</h3>
                             </a>
 
                             <a class="work__item">
-                                <h3>Example Work Item One</h3>
+                                <h3>Example Work Item Three</h3>
                             </a>
 
                             <a class="work__item">
-                                <h3>Example Work Item One</h3>
+                                <h3>Example Work Item Four</h3>
                             </a>
 
                         </div>

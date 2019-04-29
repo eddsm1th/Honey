@@ -22,6 +22,10 @@
 		max-width: 100vw;
 	}
 
+	a, a:hover, a:focus, a:active {
+		text-decoration: none;
+	}
+
 	.container {
 		max-width: 1400px;
 		width: 100%;
@@ -47,6 +51,27 @@
 				@media ( min-width: 1024px) {
 					margin-top: 40px;
 				}
+			}
+		}
+
+		a {
+			position: relative;
+			color: inherit;
+			transition: .2s color ease;
+
+			&:after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 4px;
+				background-color: #00c8ff;
+				display: inline;
+				bottom: 10%;
+				left: 0;
+			}
+
+			&:hover {
+				color: #e6e6e6;
 			}
 		}
 	}

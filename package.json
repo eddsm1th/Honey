@@ -1,0 +1,29 @@
+{
+  "name": "SuperBike-Factory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "devwatch": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "buildwatch": "webpack --mode production --watch"
+  },
+  "author": "BigBrandIdeas",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "css-loader": "^1.0.1",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.10.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "optimize-css-assets-webpack-plugin": "^5.0.1"
+  },
+  "browserslist": "> 0.1%, not dead"
+}
