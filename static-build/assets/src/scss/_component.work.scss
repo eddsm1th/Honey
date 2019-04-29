@@ -2,6 +2,10 @@
 	.work {
 		background: #000;
 
+		&__container {
+			@extend .container;
+		}
+
 		&__wrap {
 			position: relative;
 			min-height: 100vh;
@@ -63,6 +67,10 @@
 				left: 0;
 				background-color: #00C8FD;
 				mix-blend-mode: multiply;
+			}
+
+			img {
+				width: 100%;
 			}
 		}
 	}
