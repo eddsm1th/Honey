@@ -3,7 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>EddSmith.com | Don't spoil Endgame</title>
+
+        <?php
+
+            $title_tag_array = ["Don't spoil Endgame", "Where do gold fish live", "2B || !2B", "Fire and blood", "Ain't nothing to f**k with", "Don't do drugs", "Do or do not"];
+
+            $random_title_tag = $title_tag_array[ ( floor( mt_rand( 0, count( $title_tag_array ) - 1 ) ) ) ];
+
+        ?>
+
+        <title>EddSmith.com | <?php echo $random_title_tag; ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -42,9 +51,9 @@
             
                     <h2><span class="highlight js-highlight" data-highlight-src="assets/dist/images/what-up.gif">What&nbsp;up!</span> I'm Edd. I am a front end developer based in&nbsp;Derbyshire.</h2>
 
-                    <h2>I'm currently working at BigBrandIdeas, but you can look at some projects I've been working on <a href="#work">below</a>.</h2>
+                    <h2>I'm currently working at BigBrandIdeas, but you can look at some projects I've been working on&nbsp;<a href="#work">below</a>.</h2>
 
-                    <h2>I also write every now and again about anything that comes into my mind. If you feel like reading some pretty mediocre writing about completely meaningless topics - check out my <a href="#blog">blog</a>.</h2>
+                    <h2>I also write every now and again about anything that comes into my mind. If you feel like reading some pretty mediocre writing about completely meaningless topics - check out my&nbsp;<a href="#blog">blog</a>.</h2>
 
                 </article>
 
@@ -92,7 +101,9 @@
 
         </main>
 
-        <footer></footer>
+        <footer>
+            <p>This is the foota :)</p>
+        </footer>
 
     </body>
 
