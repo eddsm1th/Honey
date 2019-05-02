@@ -6,7 +6,11 @@
 
         <?php
 
-            $title_tag_array = ["Don't spoil Endgame", "Where do gold fish live", "2B || !2B", "Fire and blood", "Ain't nothing to f**k with", "Don't do drugs", "Do or do not"];
+            $title_tag_array = ["Don't spoil Endgame",
+                                "Where do gold fish live",
+                                "2B || !2B", "Fire and blood",
+                                "Ain't nothing to f**k with",
+                                "Don't do drugs", "Do or do not"];
 
             $random_title_tag = $title_tag_array[ ( floor( mt_rand( 0, count( $title_tag_array ) - 1 ) ) ) ];
 
@@ -67,30 +71,69 @@
                 
                 <div class="work__container">
                     
-                    <div class="work__wrap">
+                    <div class="work__wrap js-work-archive">
 
-                        <div class="work__inner js-work-archive no-js">
+                        <div class="work__inner js-work-archive-box
+                         no-js">
                         
-                            <a class="work__item">
-                                <h3>Example Work Item One</h3>
+                            <a class="work__item js-work-archive-item" data-highlight-image-src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" data-highlight-colour="#f00">
+                                <h3>Devil Apparel Landing Page</h3>
                             </a>
 
-                            <a class="work__item">
-                                <h3>Example Work Item Two</h3>
+                            <a class="work__item js-work-archive-item" data-highlight-image-src="https://helpx.adobe.com/uk/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg" data-highlight-colour="#f0f">
+                                <h3>FilmSmith Media Website</h3>
                             </a>
 
-                            <a class="work__item">
-                                <h3>Example Work Item Three</h3>
+                            <a class="work__item js-work-archive-item" data-highlight-image-src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                                <h3>The Pack Horse Hayfield Website</h3>
                             </a>
 
-                            <a class="work__item">
+                            <a class="work__item js-work-archive-item" data-highlight-image-src="https://helpx.adobe.com/uk/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg" data-highlight-colour="#0f0">
                                 <h3>Example Work Item Four</h3>
                             </a>
 
                         </div>
 
-                        <div class="work__decoration">
+                        <div class="work__decoration js-work-archive-decoration">
                             <img src="http://via.placeholder.com/413x600.png">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="blog" id="blog">
+                
+                <div class="blog__container">
+                    
+                    <div class="blog__intro">
+                        
+                       <p>Sometime I like to write about anything that interests me. This could be anyfrom an album or movie review to a recent experience.</p>
+
+                       <p>Take a look...</p>
+
+                    </div>
+
+                    <div class="blog__archive">
+                        
+                        <div class="blog__archive-item">
+                            
+                            <img src="http://via.placeholder.com/400x300.jpg">
+
+                        </div>
+
+                        <div class="blog__archive-item">
+                            
+                            <img src="http://via.placeholder.com/400x300.jpg">
+
+                        </div>
+
+                        <div class="blog__archive-item">
+                            
+                            <img src="http://via.placeholder.com/400x300.jpg">
+
                         </div>
 
                     </div>
@@ -101,7 +144,7 @@
 
         </main>
 
-        <footer>
+        <footer class="container">
             <p>This is the foota :)</p>
         </footer>
 

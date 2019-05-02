@@ -1,5 +1,5 @@
 
-	.about {
+	.blog {
 		@include from-to-with-between('padding-top', 80px, 240px, 320px, 1024px);
 		@include from-to-with-between('padding-bottom', 80px, 240px, 320px, 1024px);
 		background-color: #fff;
@@ -9,14 +9,14 @@
 			@extend .container;
 		}
 
-		&__content {
+		&__intro {
 			@extend .simple-text;
 			position: relative;
 			z-index: 1;
 
 			&:after {
 				@include from-to-with-between('font-size', 160px, 265px, 1024px, 1920px);
-				content: "Edd Smith";
+				content: "Blog";
 				position: absolute;
 				top: 0;
 				transform: translateX(-10%);
@@ -41,6 +41,29 @@
 			* {
 				@include from-to-with-between('font-size', 28px, 40px, 320px, 1024px);
 				font-weight: bold;
+			}
+		}
+
+		&__archive {
+			@include from-to-with-between('padding-top', 40px, 120px, 320px, 1024px);
+			@include from-to-with-between('margin-top', -40px, -80px, 320px, 1024px);
+			@include from-to-with-between('margin-left', -40px, -80px, 320px, 1024px);
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		&__archive-item {
+			@include from-to-with-between('padding-top', 40px, 80px, 320px, 1024px);
+			@include from-to-with-between('padding-left', 40px, 80px, 320px, 1024px);
+			width: 100%;
+
+			@media ( min-width: 1024px) {
+				width: 50%;
+			}
+
+			> * {
+				width: 100%;
+				display: block;
 			}
 		}
 	}

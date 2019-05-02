@@ -31,34 +31,68 @@ if ( highlights && highlightBillboard ) {
 
 }
 
-const   workArchives = document.querySelectorAll('.js-work-archive'),
+const   workArchive = document.querySelector('.js-work-archive'),
         windowHeight = window.innerHeight;
 
-document.addEventListener('mousemove', function ( event ) {    
+if ( workArchive ) {
 
-    const   mouseY = event.clientY,
-            mouseYAsPercentOfWindow = mouseY / windowHeight;
+    const   workArchiveItems = workArchive.querySelectorAll('.js-work-archive-item'),
+            workArchiveBox = workArchive.querySelector('.js-work-archive-box'),
+            workArchiveDecoration = workArchive.querySelector('.js-work-archive-decoration'),
+            workArchiveDecorationImg = workArchiveDecoration.querySelector('img');
 
-    [...workArchives].forEach( function ( workArchive ) {
+    document.addEventListener('mousemove', function ( event ) {    
 
-        workArchive.classList.remove('no-js');
+        const   mouseY = event.clientY,
+                mouseYAsPercentOfWindow = mouseY / windowHeight;
 
-        const   elemHeight = workArchive.offsetHeight,
+        workArchiveBox.classList.remove('no-js');
+
+        const   elemHeight = workArchiveBox.offsetHeight,
                 mouseYPercentRelativeToElem = elemHeight * mouseYAsPercentOfWindow,
-                getProperElemTranslation = workArchive.offsetHeight - mouseYPercentRelativeToElem - ( elemHeight / 2 );
+                getProperElemTranslation = workArchiveBox.offsetHeight - mouseYPercentRelativeToElem - ( elemHeight / 2 );
 
         if ( window.innerWidth > 1024 ) {
 
-            workArchive.style.transform = `translateY(${ getProperElemTranslation }px)`;
+            workArchiveBox.style.transform = `translateY(${ getProperElemTranslation }px)`;
 
         }
 
         window.addEventListener( 'resize', function () {
 
-            workArchive.style.transform = `translateY(0px)`;
+            if ( window.innerWidth < 1024 ) {
+
+                workArchiveBox.style.transform = `translateY(0px)`;
+
+            }
 
         } )
 
     } )
 
-} )
+    workArchiveItems.forEach( function ( workArchiveItem ) {
+
+        const   highlightImage = workArchiveItem.dataset.highlightImageSrc,
+                highlightColour = workArchiveItem.dataset.highlightColour;
+
+        workArchiveItem.addEventListener( 'mouseenter', function () {
+
+            if ( !workArchiveDecoration.classList.contains('hello') && highlightImage != null && highlightImage != '' ) {
+
+                workArchiveDecoration.classList.add('hello');
+
+            }
+
+            workArchiveDecoration.style.backgroundColor = ( highlightColour != null && highlightColour != '' ) ? highlightColour : 'rgb(0, 200, 253)';
+
+            if ( highlightImage != null || highlightImage != '' ) {
+
+                workArchiveDecorationImg.src = highlightImage;
+
+            }
+
+        } )
+
+    } )
+
+}

@@ -69,10 +69,13 @@
 			display: none;
 
 			@media ( min-width: 1024px ) {
-				display: block;
 				width: 35%;
 				margin-left: 65%;
 				position: relative;
+
+				&.hello {
+					display: block;
+				}
 
 				&:after {
 					content: "";
@@ -81,12 +84,18 @@
 					height: 100%;
 					top: 0;
 					left: 0;
-					background-color: #00C8FD;
-					mix-blend-mode: multiply;
+					background-color: inherit;
+					opacity: .4;
+
+					@supports ( mix-blend-mode: multiply ) {
+						opacity: 1;
+						mix-blend-mode: multiply;
+					}
 				}
 
 				img {
 					width: 100%;
+					display: block;
 				}
 			}
 		}
