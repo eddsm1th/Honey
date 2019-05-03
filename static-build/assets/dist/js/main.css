@@ -91,56 +91,60 @@
   !*** ./static-build/assets/src/js/highlight.js ***!
   \*************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
+/***/ (function(module, exports) {
 
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+    const   highlights = document.querySelectorAll('.js-highlight'),
+            highlightBillboard = document.querySelector('.js-highlight-billboard')
 
-var highlights = document.querySelectorAll('.js-highlight'),
-    highlightBillboard = document.querySelector('.js-highlight-billboard');
+    if ( highlights && highlightBillboard ) {
 
-if (highlights && highlightBillboard) {
+        [...highlights].forEach( function ( highlight ) {
 
-            [].concat(_toConsumableArray(highlights)).forEach(function (highlight) {
+            const highlightImagePath = highlight.dataset.highlightSrc;
 
-                        var highlightImagePath = highlight.dataset.highlightSrc;
+            highlight.addEventListener( 'mouseenter', function () {
 
-                        highlight.addEventListener('mouseenter', function () {
+                highlightBillboard.querySelector('img').src = highlightImagePath;
 
-                                    highlightBillboard.querySelector('img').src = highlightImagePath;
+                highlightBillboard.classList.add('hello');
 
-                                    highlightBillboard.classList.add('hello');
-                        });
+            } )
 
-                        highlight.addEventListener('mouseleave', function () {
+            highlight.addEventListener( 'mouseleave', function () {
 
-                                    highlightBillboard.classList.remove('hello');
-                        });
-            });
+                highlightBillboard.classList.remove('hello');
 
-            window.addEventListener('mousemove', function (event) {
+            } )
 
-                        highlightBillboard.style.transform = 'translate(' + (event.clientX + 1) + 'px, ' + event.clientY + 'px)';
-            });
-}
+        } )
+
+        window.addEventListener( 'mousemove', function ( event ) {
+
+            highlightBillboard.style.transform = `translate(${ event.clientX + 1 }px, ${ event.clientY }px)`;
+
+        } )
+
+    }
 
 /***/ }),
 
-/***/ "./static-build/assets/src/js/index.js":
-/*!*********************************************!*\
-  !*** ./static-build/assets/src/js/index.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./static-build/assets/src/js/main.js":
+/*!********************************************!*\
+  !*** ./static-build/assets/src/js/main.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _work_archive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./work-archive */ "./static-build/assets/src/js/work-archive.js");
+/* harmony import */ var _work_archive__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_work_archive__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _highlight__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./highlight */ "./static-build/assets/src/js/highlight.js");
+/* harmony import */ var _highlight__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_highlight__WEBPACK_IMPORTED_MODULE_1__);
 
-
-__webpack_require__(/*! ./work-archive */ "./static-build/assets/src/js/work-archive.js");
-
-__webpack_require__(/*! ./highlight */ "./static-build/assets/src/js/highlight.js");
+	
+	
 
 /***/ }),
 
@@ -149,67 +153,74 @@ __webpack_require__(/*! ./highlight */ "./static-build/assets/src/js/highlight.j
   !*** ./static-build/assets/src/js/work-archive.js ***!
   \****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+    
+    const   workArchive = document.querySelector('.js-work-archive'),
+            windowHeight = window.innerHeight;
 
+    if ( workArchive ) {
 
-var workArchive = document.querySelector('.js-work-archive'),
-    windowHeight = window.innerHeight;
-
-if (workArchive) {
-
-            var workArchiveItems = workArchive.querySelectorAll('.js-work-archive-item'),
+        const   workArchiveItems = workArchive.querySelectorAll('.js-work-archive-item'),
                 workArchiveBox = workArchive.querySelector('.js-work-archive-box'),
                 workArchiveDecoration = workArchive.querySelector('.js-work-archive-decoration'),
                 workArchiveDecorationImg = workArchiveDecoration.querySelector('img');
 
-            document.addEventListener('mousemove', function (event) {
+        document.addEventListener('mousemove', function ( event ) {    
 
-                        var mouseY = event.clientY,
-                            mouseYAsPercentOfWindow = mouseY / windowHeight;
+            const   mouseY = event.clientY,
+                    mouseYAsPercentOfWindow = mouseY / windowHeight;
 
-                        workArchiveBox.classList.remove('no-js');
+            workArchiveBox.classList.remove('no-js');
 
-                        var elemHeight = workArchiveBox.offsetHeight,
-                            mouseYPercentRelativeToElem = elemHeight * mouseYAsPercentOfWindow,
-                            getProperElemTranslation = workArchiveBox.offsetHeight - mouseYPercentRelativeToElem - elemHeight / 2;
+            const   elemHeight = workArchiveBox.offsetHeight,
+                    mouseYPercentRelativeToElem = elemHeight * mouseYAsPercentOfWindow,
+                    getProperElemTranslation = workArchiveBox.offsetHeight - mouseYPercentRelativeToElem - ( elemHeight / 2 );
 
-                        if (window.innerWidth > 1024) {
+            if ( window.innerWidth > 1024 ) {
 
-                                    workArchiveBox.style.transform = 'translateY(' + getProperElemTranslation + 'px)';
-                        }
+                workArchiveBox.style.transform = `translateY(${ getProperElemTranslation }px)`;
 
-                        window.addEventListener('resize', function () {
+            }
 
-                                    if (window.innerWidth < 1024) {
+            window.addEventListener( 'resize', function () {
 
-                                                workArchiveBox.style.transform = 'translateY(0px)';
-                                    }
-                        });
-            });
+                if ( window.innerWidth < 1024 ) {
 
-            workArchiveItems.forEach(function (workArchiveItem) {
+                    workArchiveBox.style.transform = `translateY(0px)`;
 
-                        var highlightImage = workArchiveItem.dataset.highlightImageSrc,
-                            highlightColour = workArchiveItem.dataset.highlightColour;
+                }
 
-                        workArchiveItem.addEventListener('mouseenter', function () {
+            } )
 
-                                    if (!workArchiveDecoration.classList.contains('hello') && highlightImage != null && highlightImage != '') {
+        } )
 
-                                                workArchiveDecoration.classList.add('hello');
-                                    }
+        workArchiveItems.forEach( function ( workArchiveItem ) {
 
-                                    workArchiveDecoration.style.backgroundColor = highlightColour != null && highlightColour != '' ? highlightColour : 'rgb(0, 200, 253)';
+            const   highlightImage = workArchiveItem.dataset.highlightImageSrc,
+                    highlightColour = workArchiveItem.dataset.highlightColour;
 
-                                    if (highlightImage != null && highlightImage != '') {
+            workArchiveItem.addEventListener( 'mouseenter', function () {
 
-                                                workArchiveDecorationImg.src = highlightImage;
-                                    }
-                        });
-            });
-}
+                if ( !workArchiveDecoration.classList.contains('hello') && highlightImage != null && highlightImage != '' ) {
+
+                    workArchiveDecoration.classList.add('hello');
+
+                }
+
+                workArchiveDecoration.style.backgroundColor = ( highlightColour != null && highlightColour != '' ) ? highlightColour : 'rgb(0, 200, 253)';
+
+                if ( highlightImage != null && highlightImage != '' ) {
+
+                    workArchiveDecorationImg.src = highlightImage;
+
+                }
+
+            } )
+
+        } )
+
+    }
 
 /***/ }),
 
@@ -225,17 +236,17 @@ if (workArchive) {
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************!*\
-  !*** multi ./static-build/assets/src/js/index.js ./static-build/assets/src/scss/main.scss ***!
-  \********************************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** multi ./static-build/assets/src/js/main.js ./static-build/assets/src/scss/main.scss ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./static-build/assets/src/js/index.js */"./static-build/assets/src/js/index.js");
+__webpack_require__(/*! ./static-build/assets/src/js/main.js */"./static-build/assets/src/js/main.js");
 module.exports = __webpack_require__(/*! ./static-build/assets/src/scss/main.scss */"./static-build/assets/src/scss/main.scss");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map
+/*# sourceMappingURL=main.css.map*/
