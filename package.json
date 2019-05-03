@@ -1,5 +1,5 @@
 {
-  "name": "SuperBike-Factory",
+  "name": "Honey",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,13 @@
     "build": "webpack --mode production",
     "buildwatch": "webpack --mode production --watch"
   },
-  "author": "BigBrandIdeas",
+  "author": "Eddsm1th",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.3.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.10.0",
